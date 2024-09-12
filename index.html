@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata and document settings -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple To-Do List Manager</title>
     <style>
+        /* General body styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+        /* Intro section styling with background image */
         .intro {
-            background: url('https://img.freepik.com/free-photo/flat-lay-notebook-with-list-desk_23-2148938724.jpg?t=st=1725945009~exp=1725948609~hmac=93bdfc04d059849a4bbdc0b919bc0b64bd0f6973ad2f2dcc1bdcc922865beb41&w=1060') no-repeat center center/cover;
+            background: url('https://img.freepik.com/free-photo/flat-lay-notebook-with-list-desk_23-2148938724.jpg') no-repeat center center/cover;
             color: white;
             padding: 50px;
             text-align: center;
             height: 100vh;
         }
+        /* Header text styling */
         .intro h1 {
             font-size: 3em;
             margin: 0;
@@ -25,6 +29,7 @@
         .intro p {
             font-size: 1.5em;
         }
+        /* Navigation styling */
         nav {
             margin-bottom: 20px;
         }
@@ -37,9 +42,11 @@
             background: rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s;
         }
+        /* Navigation link hover and active state */
         nav a:hover, nav a.active {
             background-color: rgba(255, 255, 255, 0.3);
         }
+        /* Button styling */
         .btn {
             background-color: #4CAF50;
             color: white;
@@ -50,30 +57,36 @@
             border: 1px solid #4CAF50;
             transition: background-color 0.3s, border-color 0.3s;
         }
+        /* Button hover state */
         .btn:hover {
             background-color: #45a049;
             border-color: #45a049;
         }
+        /* Section styling for features, about, tasks, and projects */
         .features, .about, .tasks, .projects {
             padding: 50px;
             text-align: center;
         }
+        /* Feature images styling */
         .features img {
             max-width: 300px;
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        /* Task list styling */
         #taskList {
             list-style: none;
             padding: 0;
         }
+        /* Individual task item styling */
         #taskList li {
             background: #f4f4f4;
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
         }
+        /* Delete button styling */
         #taskList button {
             background-color: #e74c3c;
             color: white;
@@ -82,13 +95,16 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        /* Delete button hover state */
         #taskList button:hover {
             background-color: #c0392b;
         }
+        /* Project list styling */
         .projects ul {
             list-style: none;
             padding: 0;
         }
+        /* Individual project item styling */
         .projects li {
             background: #e0e0e0;
             margin: 10px 0;
@@ -99,8 +115,10 @@
 </head>
 <body>
 
+<!-- Header section with navigation and introduction -->
 <header class="intro">
     <nav>
+        <!-- Navigation links -->
         <a href="#features" class="active">Features</a>
         <a href="#tasks">Tasks</a>
         <a href="#about">About</a>
@@ -110,23 +128,21 @@
     <p>Effortlessly manage your tasks and stay organized with our intuitive to-do list app.</p>
 </header>
 
+<!-- Features section with key functionalities -->
 <section id="features" class="features">
     <h2>Key Features</h2>
-
     <!-- Feature 1: Task Prioritization -->
     <div class="feature">
         <img src="https://www.shutterstock.com/shutterstock/photos/2330995513/display_1500/stock-photo-task-priority-and-management-concept-the-order-of-priority-in-any-activity-set-work-priority-2330995513.jpg" alt="Task Prioritization">
         <h3>Task Prioritization</h3>
         <p>Highlight and sort your tasks based on priority levels to focus on what matters most.</p>
     </div>
-
     <!-- Feature 2: Reminder Alerts -->
     <div class="feature">
         <img src="https://thumbs.dreamstime.com/z/remember-reminder-13004266.jpg?ct=jpeg" alt="Reminder Alerts">
         <h3>Reminder Alerts</h3>
         <p>Stay on top of your schedule with timely reminders for your important tasks.</p>
     </div>
-
     <!-- Feature 3: Task Categories -->
     <div class="feature">
         <img src="https://www.bannerbear.com/images/ghost/2022-08-22-how-to-set-your-notion-to-do-list-as-desktop-wallpaper-automatically-free-notion-template/0.gif" alt="Task Categories">
@@ -135,9 +151,11 @@
     </div>
 </section>
 
+<!-- Section for managing tasks -->
 <section id="tasks" class="tasks">
     <h2>Manage Your Tasks</h2>
     <form id="taskForm">
+        <!-- Input fields for adding tasks -->
         <input type="text" id="taskTitle" placeholder="Task Title" required>
         <select id="taskPriority">
             <option value="low">Low</option>
@@ -147,21 +165,22 @@
         <input type="text" id="taskCategory" placeholder="Category">
         <button type="submit">Add Task</button>
     </form>
-
-    <!-- Task List -->
+    <!-- List of tasks -->
     <ul id="taskList"></ul>
 </section>
 
+<!-- Section for displaying projects -->
 <section id="projects" class="projects" style="display: none;">
     <h2>Projects</h2>
     <ul>
+        <!-- Project links -->
         <li><a href="https://example.com/project1" target="_blank">Project 1</a></li>
         <li><a href="https://example.com/project2" target="_blank">Project 2</a></li>
         <li><a href="https://example.com/project3" target="_blank">Project 3</a></li>
-        <!-- Add more projects as needed -->
     </ul>
 </section>
 
+<!-- About section with project details -->
 <section id="about" class="about">
     <h2>About the Project</h2>
     <p>This project was inspired by the need to keep track of daily tasks efficiently. Built as part of a portfolio project to showcase practical skills in web development.</p>
@@ -177,42 +196,37 @@
         Notification.requestPermission();
     }
 
+    // Function to show notifications
     function showNotification(title, body) {
         if (Notification.permission === 'granted') {
             new Notification(title, { body });
         }
     }
 
+    // Event listener for task form submission
     document.getElementById('taskForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const title = document.getElementById('taskTitle').value;
-        const priority = document.getElementById('taskPriority').value;
-        const category = document.getElementById('taskCategory').value;
+        // Get task details from input fields
+        const taskTitle = document.getElementById('taskTitle').value;
+        const taskPriority = document.getElementById('taskPriority').value;
+        const taskCategory = document.getElementById('taskCategory').value;
 
+        // Create a new task item and add it to the list
         const taskList = document.getElementById('taskList');
         const taskItem = document.createElement('li');
-        taskItem.innerHTML = `${title} [${priority}] (${category}) <button onclick="deleteTask(this)">Delete</button>`;
+        taskItem.innerHTML = `${taskTitle} [${taskPriority}] (${taskCategory}) <button onclick="deleteTask(this)">Delete</button>`;
         taskList.appendChild(taskItem);
         
         // Clear form fields
-        document.getElementById('taskForm').reset();
-
-        // Show reminder notification (example)
-        showNotification('Task Added', `New task: ${title}`);
+        document.getElementById('taskTitle').value = '';
+        document.getElementById('taskCategory').value = '';
     });
 
+    // Function to delete a task
     function deleteTask(button) {
         button.parentElement.remove();
     }
-
-    document.getElementById('viewProjectsBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        const projectsSection = document.getElementById('projects');
-        const isVisible = projectsSection.style.display === 'block';
-        projectsSection.style.display = isVisible ? 'none' : 'block';
-    });
 </script>
-
 </body>
 </html>
